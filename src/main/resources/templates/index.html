@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<title>dice</title>
+	</head>
+	<body>
+	 <div class="container">
+	 <div class="jumbotron">
+		<h1>Dice Game</h1>
+		
+ 		<form class="form-group" th:action="@{/}" th:method="post" th:object="${cup}">
+ 		<label>Enter Amount of dice in a Cup</label>
+			<input class="form-control" type="number" placeholder="enter amount of dice" th:field="*{amount}" name="cup">
+			<button class="btn btn-info">Shake Dice</button>
+		</form> 
+	
+		<h3>Dice total: <span th:text="${total}"></span></h3>
+		
+		<form class="form-group"  th:action="@{/loaded}" th:method="post" th:object="${cup}">
+			<label>Enter a number you want the die to land on between 1-6</label>
+			<input class="form-control" type="number" placeholder="enter number for loaded dice" th:field="*{loadedNum}" name="cup">
+			<button class="btn btn-danger">Loaded Dice Test</button>
+		</form> 
+		<h3>Loaded Dice output: <span th:text="${loadedNum}"></span></h3>
+	 </div>
+	</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
+</html>
